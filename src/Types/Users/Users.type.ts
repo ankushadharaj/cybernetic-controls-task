@@ -1,3 +1,5 @@
+import { ResponseType } from "../Store.type";
+
 export type Users = Array<User>;
 
 export interface User {
@@ -70,4 +72,8 @@ export interface Crypto {
     coin: string
     wallet: string
     network: string
+}
+
+export interface GetUserListResponse extends ResponseType {
+    users: Users;
 }

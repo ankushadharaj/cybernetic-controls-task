@@ -11,4 +11,8 @@ export interface InitialState<T> {
     error?: any | null
 };
 
-
+export interface ResponseType {
+    limit: number, 
+    skip: number,
+    total: number, 
+}
