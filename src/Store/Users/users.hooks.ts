@@ -19,6 +19,7 @@ import { getUsersListRequest } from "./users.action";
 *       isError: boolean,       // Indicates if there was an error during the fetch
 *       error: any,             // Contains error details if an error occurred
 *       fetchMore: () => void,  // Function to fetch more based on scrolling or any other user action for paginated calls
+*       hasMore: boolean,       // Used to fetch data after the initial fetch request
 * }
 * 
 * Each hook can be used to dispatch an action to fetch data or utilize other hooks 
@@ -34,7 +35,7 @@ function useGetUsersList() {
         if (!userList?.length) {
             dispatch(getUsersListRequest());
         }
-    },[dispatch]);
+    },[dispatch, hasMore]);
 
     const fetchMoreUsers = () => {
         if (hasMore) {
@@ -42,7 +43,7 @@ function useGetUsersList() {
         }
     };
 
-    return { userList, isLoading, isError, error, fetchMoreUsers };
+    return { userList, isLoading, isError, error, fetchMoreUsers, hasMore };
 }
 
 export { useGetUsersList };

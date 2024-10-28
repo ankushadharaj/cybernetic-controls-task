@@ -1,39 +1,16 @@
 import { ModalHeader } from "../ModalHeader/ModalHeader";
 
 import { useGetUsersList } from "../../../Store/Users/users.hooks";
-import { LoadingComponent } from "../../LoadingComponent/LoadingComponent";
 import { User } from "../../../Types/Users/Users.type";
 
 import "./UserDetailsModal.css";
-
-/**
- * 
-  "company": {
-    "department": "Engineering",
-    "name": "Dooley, Kozey and Cronin",
-    "title": "Sales Manager",
-    "address": {
-      "address": "263 Tenth Street",
-      "city": "San Francisco",
-      "state": "Wisconsin",
-      "stateCode": "WI",
-      "postalCode": "37657",
-      "coordinates": {
-        "lat": 71.814525,
-        "lng": -161.150263
-      },
-      "country": "United States"
-    }
-  },
-}
- */
 
 interface UserDetailsModalI {
     id: number;
     onClickClose: () => void;
 }
 export function UserDetailsModal({ id, onClickClose }: UserDetailsModalI) {
-    const { userList, isLoading } = useGetUsersList();
+    const { userList } = useGetUsersList();
 
     const userDetails: User = userList?.find((user) => user.id === id) as User;
     const companyAddress = `${userDetails.company.address.address}, ${userDetails.company.address.city}, ${userDetails.company.address.state} - ${userDetails.company.address.postalCode}`
@@ -56,8 +33,7 @@ export function UserDetailsModal({ id, onClickClose }: UserDetailsModalI) {
             <div className="background" onClick={onClickClose} />
             <div className="modal-container">
                 <ModalHeader title="User Details" onClickClose={onClickClose} />
-                {isLoading && <LoadingComponent />}
-                {!isLoading && userDetails && (
+                {userDetails && (
                     <>
                         <div className="user-modal-content">
                             <div className="grid-row">

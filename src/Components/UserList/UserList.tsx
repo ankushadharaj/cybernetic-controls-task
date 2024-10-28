@@ -7,7 +7,7 @@ import { UserListTableType } from "../../Types/Table.type";
 import "./UserList.css";
 
 export default function UserList() {
-    const { userList, isLoading, isError, error, fetchMoreUsers } =  useGetUsersList();
+    const { userList, isLoading, isError, error, fetchMoreUsers, hasMore } =  useGetUsersList();
 
     const userTableData = useMemo(() => {       
         const tableData = userList?.map((user) => {
@@ -24,14 +24,9 @@ export default function UserList() {
         return tableData;
     }, [userList, isLoading]);
 
-    const handleScroll = () => {
-            fetchMoreUsers();
-    };
-
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+        if(!isLoading && hasMore) fetchMoreUsers()
+    }, [isLoading, fetchMoreUsers, hasMore]);
 
     const table = Table<UserListTableType>({
         data: { data: userTableData, isLoading, isError, error },
