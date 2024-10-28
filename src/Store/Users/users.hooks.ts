@@ -6,13 +6,21 @@ import { getUsersListRequest } from "./users.action";
 
 function useGetUsersList() {
     const dispatch = useDispatch();
-    const { data: userList, isLoading, isError, error } = useSelector((state: RootState) => state.users);
+    const { data: userList, isLoading, isError, error, hasMore } = useSelector((state: RootState) => state.users);
 
     useEffect(() => {
-        dispatch({ type: getUsersListRequest.type });
+        if (!userList?.length) {
+            dispatch(getUsersListRequest());
+        }
     },[dispatch]);
 
-    return { userList, isLoading, isError, error };
+    const fetchMoreUsers = () => {
+        if (hasMore) {
+            dispatch(getUsersListRequest());
+        }
+    };
+
+    return { userList, isLoading, isError, error, fetchMoreUsers };
 }
 
 export { useGetUsersList };

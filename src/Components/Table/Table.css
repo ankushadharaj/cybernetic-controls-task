@@ -1,0 +1,39 @@
+
+.table-container {
+    background-color: white;
+    border-collapse: collapse;
+    width: 100%;
+    min-height: 550px;
+}
+
+.table {
+    width: 99%;
+    height: 98%;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+th {
+    border-top: 1px solid #f0f2f7;
+    border-bottom: 1px solid #f0f2f7;
+    height: 60px;
+    min-height: 50px;
+}
+
+td {
+    border-top: 1px solid #f0f2f7;
+    border-bottom: 1px solid #f0f2f7;
+    font-size: 0.8em;
+    color: #000000;
+    height: 50px;
+    min-height: 40px;
+}
+
+.tr {
+    max-height: 10px;
+}
+.tr:hover {
+    background-color: #f0f2f7;
+    box-shadow: 0 0;
+}

@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
 const store = configureStore({
     reducer: rootReducer,
     middleware:(getDefaultMiddleware) => {
-        const customMiddleware = getDefaultMiddleware().concat(sagaMiddleware as any);
+        const customMiddleware = getDefaultMiddleware().concat(sagaMiddleware);
         return customMiddleware;
       }
 })
