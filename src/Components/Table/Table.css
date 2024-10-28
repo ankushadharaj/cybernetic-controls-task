@@ -3,8 +3,6 @@
     background-color: white;
     border-collapse: collapse;
     width: 100%;
-    min-height: 550px;
-    
 }
 
 .table {
@@ -24,7 +22,6 @@ th {
 }
 
 tbody {
-    height: 500px; 
     overflow-y: auto;
 }
 

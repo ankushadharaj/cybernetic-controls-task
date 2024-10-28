@@ -33,7 +33,6 @@ export default function UserList() {
         tableName: 'userList'
     });
 
-    console.log(userList);
 
     return (
         <div className="user-list-container">

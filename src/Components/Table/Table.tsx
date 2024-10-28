@@ -84,7 +84,6 @@ export function Table<T>({ data, tableName }: TableProps<T>) {
         globalFilterFn: (row, _columnId, input) => {
             const searchColumns = getSearchableColumns(tableName);
             const searchTerms = input.toLowerCase().split(' ');
-            console.log(searchTerms)
             return searchTerms.every((term: string) => 
                 searchColumns.some(columnId => {
                     const value = (row.getValue(columnId) as string) || '';
