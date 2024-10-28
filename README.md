@@ -61,13 +61,13 @@ To get started with the application, follow these steps:
   npm run dev
   ```
 4. **Build Application**:
-   ```
-   npm run build
-   ```
+  ```
+  npm run build
+  ```
 5. **Publishing Application**: 
-   ```
-   npm run deploy
-   ```
+  ```
+  npm run deploy
+  ```
 
 
 ## API Endpoints
