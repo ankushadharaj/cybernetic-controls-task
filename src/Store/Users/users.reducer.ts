@@ -5,6 +5,13 @@ import * as UserActions from './users.action';
 import { Users } from '../../Types/Users/Users.type';
 import { InitialState } from "../../Types/Store.type";
 
+/**
+ * Reducer
+ * 
+ * Individual reducer for each API group. There reducers are combined to form the root reducer. 
+ * Add cased for each action described in Actions. 
+ * 
+ */
 const initialState: InitialState<Users> = {
     data: undefined,
     isLoading: true,

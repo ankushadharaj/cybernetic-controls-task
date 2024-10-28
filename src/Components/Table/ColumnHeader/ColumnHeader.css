@@ -6,6 +6,8 @@
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 0px 1px #d9dcdf, 0 2px 3px -1px #d9dcdf;
+    height: 50px;
+    max-height: 50px;
 }
 
 .column-name {

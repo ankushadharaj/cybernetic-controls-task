@@ -7,11 +7,18 @@ import * as UserActions from './users.action';
 
 import { GetUserListResponse } from '../../Types/Users/Users.type';
 
+/**
+ * Sagas
+ * 
+ * Sagas are used to handle side effects in the application, particularly for managing 
+ * asynchronous operations like API calls.
+ * 
+ */
+
 function* getUsersList(){
     const { currentPage } = yield select((state) => {
         return state.users
     });
-
 
     try {
         const response: AxiosResponse<GetUserListResponse> = yield axiosClient.get(`users?limit=${PAGE_LIMIT}&skip=${currentPage * PAGE_LIMIT}`); 
