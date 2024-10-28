@@ -48,7 +48,7 @@ To get started with the application, follow these steps:
 1. **Clone the repository**:
   ```
    gh repo clone ankushadharaj/cybernetic-controls-task
-   cd user-listing-app
+   cd cybernetic-controls-task
   ```
 
 2. **Install Dependencies**: 
